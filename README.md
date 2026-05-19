@@ -145,7 +145,7 @@ The project supports multiple AI backends through `AIProvider.gd`.
 | --- | --- | --- |
 | Google | `gemma-4-31b-it` | `https://generativelanguage.googleapis.com/v1beta` |
 | OpenRouter | `google/gemma-4-31b-it:free` | `https://openrouter.ai/api/v1/chat/completions` |
-| Ollama | `gemma3:12b` | `http://localhost:11434/api/chat` |
+| Ollama | `gemma4:31b` | `http://localhost:11434/api/chat` |
 | LM Studio | `local-model` | `http://localhost:1234/v1/chat/completions` |
 
 Cloud providers require an API key. Local providers can run without a key if the local server is already running.
