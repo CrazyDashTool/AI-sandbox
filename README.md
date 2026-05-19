@@ -88,6 +88,7 @@ The authored world includes several recognizable areas:
 - Camping area
 - Street lights
 - Water around the island
+- Second island
 
 The map also has grass, terrain, water shaders, particle effects, benches, trees, and other decoration.
 
