@@ -1,6 +1,7 @@
 # AI Sandbox
 
-<img width="1672" height="941" alt="Thumb" src="https://github.com/user-attachments/assets/eecee294-7541-44ac-b30f-9aef415f6450" />
+<img width="1920" height="1080" alt="Thumb" src="https://github.com/user-attachments/assets/014f83bd-73aa-4f07-9d0a-a2880da62b9c" />
+
 
 
 AI Sandbox is a 3D Godot sandbox game built for the [DEV Gemma 4 Challenge](https://dev.to/devteam/join-the-gemma-4-challenge-3000-prize-pool-for-ten-winners-23in).
