@@ -1,5 +1,8 @@
 # AI Sandbox
 
+<img width="1672" height="941" alt="Thumb" src="https://github.com/user-attachments/assets/eecee294-7541-44ac-b30f-9aef415f6450" />
+
+
 AI Sandbox is a 3D Godot sandbox game built for the [DEV Gemma 4 Challenge](https://dev.to/devteam/join-the-gemma-4-challenge-3000-prize-pool-for-ten-winners-23in).
 
 The project experiments with an AI-controlled companion inside a small interactive island. The NPC is not only a chatbot: it sees the world through its own camera, receives a compact memory of the current world state, answers the player, chooses an action, and then physically acts in the scene.
