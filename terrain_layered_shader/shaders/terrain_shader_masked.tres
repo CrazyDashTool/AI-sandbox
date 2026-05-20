@@ -1,0 +1,90 @@
+[gd_resource type="Shader" format=3 uid="uid://cj5ui8mbwgx27"]
+
+[resource]
+code = "/**
+* MIT License
+*
+* Copyright (c) 2023 Mark McKay
+* https://github.com/blackears/terrain_layered_shader
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the \"Software\"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*/
+
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_never, cull_back, diffuse_burley, specular_schlick_ggx;
+
+#include \"res://addons/terrain_layered_shader/shaders/terrain_tools.gdshaderinc\"
+
+uniform float tile_margin : hint_range(0, 1) = .1;
+uniform vec2 uv_terrain_scale = vec2(1.0, 1.0);
+uniform vec2 uv_terrain_offset;
+
+group_uniforms Albedo;
+uniform vec4 albedo : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+
+group_uniforms Metalic;
+uniform float metallic;
+uniform sampler2D texture_metallic : filter_linear_mipmap, repeat_enable, hint_default_white;
+uniform vec4 metallic_texture_channel;
+
+group_uniforms Roughness;
+uniform float roughness : hint_range(0, 1) = 1.0;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+group_uniforms Specular;
+uniform float specular;
+
+group_uniforms Normal;
+uniform sampler2D texture_normal : hint_roughness_normal, filter_linear_mipmap, repeat_enable;
+uniform float normal_scale : hint_range(-16, 16) = 1.0;
+
+group_uniforms Mask;
+uniform vec4 mask_channel : source_color = vec4(0.0, 0.0, 0.0, 0.0);
+uniform sampler2D texture_mask : source_color, filter_linear_mipmap, repeat_enable, hint_default_black;
+uniform float mask_scale = 1.0;
+uniform vec2 uv_mask_scale = vec2(1.0, 1.0);
+uniform vec2 uv_mask_offset;
+
+varying vec2 mask_uv;
+varying vec2 terrain_uv;
+
+void vertex() {
+	mask_uv = UV * uv_mask_scale.xy + uv_mask_offset.xy;
+	terrain_uv = UV * uv_terrain_scale.xy + uv_terrain_offset.xy;
+}
+
+
+void fragment() {
+	vec4 albedo_tex = sample_tiling(texture_albedo, terrain_uv, tile_margin);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	float metallic_tex = dot(sample_tiling(texture_metallic, terrain_uv, tile_margin), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(sample_tiling(texture_roughness, terrain_uv, tile_margin), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	NORMAL_MAP = sample_tiling(texture_normal, terrain_uv, tile_margin).rgb;
+	NORMAL_MAP_DEPTH = normal_scale;
+	
+	SPECULAR = specular;
+	
+	ALPHA = dot(texture(texture_mask, mask_uv) * mask_scale, mask_channel);
+}
+"

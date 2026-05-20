@@ -1,0 +1,129 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[SimpleGrassTextured]
+
+Shortcuts/airbrush_tool=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"","events":[Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":true,"keycode":68,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+],"script":null)
+
+Shortcuts/pencil_tool=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"","events":[Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":true,"keycode":66,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+],"script":null)
+
+Shortcuts/eraser_tool=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"","events":[Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":true,"keycode":88,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+],"script":null)
+
+Shortcuts/radius_increment=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"","events":[Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":true,"keycode":93,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+],"script":null)
+
+Shortcuts/radius_decrement=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"","events":[Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":true,"keycode":91,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+],"script":null)
+
+Shortcuts/density_increment=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"","events":[Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":true,"keycode":61,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+],"script":null)
+
+Shortcuts/density_decrement=Object(Shortcut,"resource_local_to_scene":false,"resource_name":"","events":[Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":true,"keycode":45,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+],"script":null)
+
+
+[application]
+
+config/name="AI Sandbox"
+config/description="Sandbox game powered by Gemma 4 31b dense model"
+config/version="0.3.0"
+run/main_scene="res://scenes/Main menu/node_3d.tscn"
+config/features=PackedStringArray("4.6", "Forward Plus")
+config/icon="uid://bqe7g66rk31aa"
+
+[autoload]
+
+GameState="*res://autoloads/GameState.gd"
+WorldContext="*res://scripts/WorldContext.gd"
+SimpleGrass="*uid://bfq0snth8sj3h"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/UniParticles3D/plugin.cfg", "res://addons/simplegrasstextured/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg")
+
+[layer_names]
+
+3d_render/layer_17="SimpleGrassTextured interactive layer"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+anti_aliasing/quality/msaa_3d=2
+anti_aliasing/quality/screen_space_aa=1
+
+[shader_globals]
+
+sgt_legacy_renderer={
+"type": "int",
+"value": 0
+}
+sgt_player_position={
+"type": "vec3",
+"value": Vector3(1000000, 1000000, 1000000)
+}
+sgt_player_mov={
+"type": "vec3",
+"value": Vector3(0, 0, 0)
+}
+sgt_normal_displacement={
+"type": "sampler2D",
+"value": "res://addons/simplegrasstextured/images/normal.png"
+}
+sgt_motion_texture={
+"type": "sampler2D",
+"value": "res://addons/simplegrasstextured/images/motion.png"
+}
+sgt_wind_direction={
+"type": "vec3",
+"value": Vector3(1, 0, 0)
+}
+sgt_wind_movement={
+"type": "vec3",
+"value": Vector2(0, 0)
+}
+sgt_wind_strength={
+"type": "float",
+"value": 0.15
+}
+sgt_wind_turbulence={
+"type": "float",
+"value": 1.0
+}
+sgt_wind_pattern={
+"type": "sampler2D",
+"value": "res://addons/simplegrasstextured/images/wind_pattern.png"
+}
+wind_intensity={
+"type": "float",
+"value": 0.0
+}
+wind_direction={
+"type": "vec3",
+"value": Vector3(0, 0, 0)
+}
+player_position={
+"type": "vec3",
+"value": Vector3(0, 0, 0)
+}

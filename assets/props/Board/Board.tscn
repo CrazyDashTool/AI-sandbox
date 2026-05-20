@@ -1,0 +1,58 @@
+[gd_scene format=4 uid="uid://hdc00lhnuchk"]
+
+[ext_resource type="Texture2D" uid="uid://b0v7trwc4ghbj" path="res://assets/props/Board/Board_weathered-wooden-surface_1249-32.png" id="1_e458b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e458b"]
+albedo_color = Color(0.54471993, 0.38991463, 0.1596126, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftxtc"]
+resource_name = "Material.008"
+cull_mode = 2
+albedo_texture = ExtResource("1_e458b")
+metallic = 9990.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jepqh"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Material.008",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_swkga"]
+resource_name = "Board_Cube_006"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP8f/3//X/8//1//f/8f/z//n/9//9//P//f/3//n/8/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_ftxtc"),
+"name": "Material.008",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////wAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_jepqh")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_e458b"]
+data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
+
+[node name="Board" type="RigidBody3D" unique_id=1639884927]
+
+[node name="Cube2" type="MeshInstance3D" parent="." unique_id=1592494988]
+transform = Transform3D(1.624, 0, 0, 0, 0.049, 0, 0, 0, 0.489, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_e458b")
+mesh = SubResource("ArrayMesh_swkga")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=252381243]
+transform = Transform3D(1.624, 0, 0, 0, 0.049, 0, 0, 0, 0.489, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_e458b")

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ba3xs3ig5c37s"]
+
+[ext_resource type="PackedScene" uid="uid://cgnr3uu3mnteg" path="res://scenes/World.tscn" id="1_dosid"]
+[ext_resource type="Script" uid="uid://b6x2egnitpk5o" path="res://scripts/MainMenu.gd" id="2_menu"]
+
+[node name="Node3D" type="Node3D" unique_id=759903503]
+script = ExtResource("2_menu")
+
+[node name="World" parent="." unique_id=152977255 instance=ExtResource("1_dosid")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=682791487]
+transform = Transform3D(0.7071068, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.7071068, 23, 2, 23)
+current = true

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cx65so0e6jcb3"]
+
+[ext_resource type="PackedScene" uid="uid://r46cn3pctxpx" path="res://assets/props/Tree/tree.glb" id="1_8qpyc"]
+
+[node name="Tree" type="StaticBody3D" unique_id=417047494]
+
+[node name="tree" parent="." unique_id=1255776748 instance=ExtResource("1_8qpyc")]

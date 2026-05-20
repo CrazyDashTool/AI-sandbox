@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://cil0jokjulpis"]
+
+[ext_resource type="Script" uid="uid://dgknvc0n2ny46" path="res://addons/boujie_water_shader/types/water_material_designer.gd" id="1_kjqt6"]
+[ext_resource type="Shader" uid="uid://7w7tc176ngm2" path="res://addons/boujie_water_shader/shader/water.gdshader" id="2_8r27k"]
+[ext_resource type="Script" uid="uid://bvtcpdmr1v0ds" path="res://addons/boujie_water_shader/types/ocean.gd" id="3_7ce6u"]
+[ext_resource type="Script" uid="uid://bn38ibeshhc1x" path="res://addons/boujie_water_shader/types/camera_follower_3d.gd" id="4_a5ejy"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kjqt6"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_8r27k"]
+sky_material = SubResource("ProceduralSkyMaterial_kjqt6")
+
+[sub_resource type="Environment" id="Environment_7ce6u"]
+background_mode = 2
+sky = SubResource("Sky_8r27k")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vrglm"]
+render_priority = 0
+shader = ExtResource("2_8r27k")
+shader_parameter/freeze_time = false
+shader_parameter/albedo = Color(0, 0, 0, 1)
+shader_parameter/albedo_fresnel = Color(0, 0, 0, 1)
+shader_parameter/specular = 0.5
+shader_parameter/roughness = 0.2
+shader_parameter/metallic = 0.0
+shader_parameter/vertex_displace_from_mesh_normal = false
+shader_parameter/normal_wave_from_mesh_normal = false
+shader_parameter/refraction = 0.0
+shader_parameter/refraction_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/refraction_opacity = 0.0
+shader_parameter/shore_start_blend = 0.0
+shader_parameter/shore_end_blend = 0.0
+shader_parameter/distance_fade_min = 0.0
+shader_parameter/distance_fade_max = 0.0
+shader_parameter/near_fade_min = 0.0
+shader_parameter/near_fade_max = 0.0
+shader_parameter/foam_fade_min = 0.0
+shader_parameter/foam_fade_max = 0.0
+shader_parameter/shore_fade_min = 0.0
+shader_parameter/shore_fade_max = 0.0
+shader_parameter/vertex_wave_fade_min = 0.0
+shader_parameter/vertex_wave_fade_max = 0.0
+shader_parameter/depth_fog_fade_min = 0.0
+shader_parameter/depth_fog_fade_max = 0.0
+shader_parameter/refraction_scaling_distance_min = 0.0
+shader_parameter/uv_blend_sharpness = 0.0
+shader_parameter/uv_tri_scale = Vector3(0, 0, 0)
+shader_parameter/uv_tri_offset = Vector3(0, 0, 0)
+shader_parameter/color_deep = Color(0, 0, 0, 1)
+shader_parameter/color_shallow = Color(0, 0, 0, 1)
+shader_parameter/beers_law = 2.0
+shader_parameter/depth_offset = -0.75
+shader_parameter/albedo_snell = Color(0, 0, 0, 1)
+shader_parameter/snell_direction = Vector3(0, 1, 0)
+shader_parameter/snell_tightness = 0.7
+shader_parameter/WaveCount = 0
+shader_parameter/WaveSteepnesses = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/WaveAmplitudes = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/WaveDirectionsDegrees = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/WaveFrequencies = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/WaveSpeeds = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/WavePhases = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/FoamWaveCount = 0
+shader_parameter/FoamWaveSteepnesses = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/FoamWaveAmplitudes = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/FoamWaveDirectionsDegrees = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/FoamWaveFrequencies = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/FoamWaveSpeeds = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/FoamWavePhases = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/UVWaveCount = 0
+shader_parameter/UVWaveSteepnesses = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/UVWaveAmplitudes = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/UVWaveDirectionsDegrees = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/UVWaveFrequencies = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/UVWaveSpeeds = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/UVWavePhases = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bgg0k"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pspkn"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Node3D" type="Node3D" unique_id=893452361]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1687604130]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1221082640]
+environment = SubResource("Environment_7ce6u")
+
+[node name="WaterMaterialDesigner" type="Node" parent="." unique_id=1788597506]
+script = ExtResource("1_kjqt6")
+material = SubResource("ShaderMaterial_vrglm")
+update_on_ready = true
+update_when_camera_far_changes = true
+ocean_path = NodePath("../Ocean")
+camera_follower_path = NodePath("../CameraFollower3D")
+metadata/_custom_type_script = "uid://dgknvc0n2ny46"
+
+[node name="Ocean" type="Node3D" parent="." unique_id=1771389159]
+script = ExtResource("3_7ce6u")
+metadata/_custom_type_script = "uid://bvtcpdmr1v0ds"
+
+[node name="CameraFollower3D" type="Node3D" parent="." unique_id=1424085789]
+script = ExtResource("4_a5ejy")
+target_path = NodePath("../RigidBody3D")
+metadata/_custom_type_script = "uid://bn38ibeshhc1x"
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=106170383]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1098543978]
+mesh = SubResource("BoxMesh_bgg0k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1126857351]
+shape = SubResource("ConcavePolygonShape3D_pspkn")

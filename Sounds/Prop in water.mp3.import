@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dku5b7vne2g6x"
+path="res://.godot/imported/Prop in water.mp3-69b868af0cc136ffcfe9cfa5a383ccb8.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Prop in water.mp3"
+dest_files=["res://.godot/imported/Prop in water.mp3-69b868af0cc136ffcfe9cfa5a383ccb8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

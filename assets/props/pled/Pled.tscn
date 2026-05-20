@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cd3kv0c4hweb6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ow76"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pkqxj"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0ow76"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[node name="Pled" type="RigidBody3D" unique_id=345423649]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1857121628]
+transform = Transform3D(2.4, 0, 0, 0, 0.050000012, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_0ow76")
+mesh = SubResource("BoxMesh_pkqxj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=463996313]
+transform = Transform3D(2.4, 0, 0, 0, 0.050000012, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_0ow76")

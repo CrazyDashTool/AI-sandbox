@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://ckc6ncd516fn1"]
+
+[ext_resource type="Script" uid="uid://crir5mtnq8o1g" path="res://addons/zylann.hterrain/hterrain.gd" id="1_i5arm"]
+[ext_resource type="Resource" uid="uid://cj5tv5dsoogn3" path="res://scenes/data.hterrain" id="2_wc5p8"]
+[ext_resource type="Script" uid="uid://csbjsqagbaalk" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_jsk3o"]
+[ext_resource type="Texture2D" uid="uid://htwfqm1brx5e" path="res://Textures/Grass/Poliigon_GrassPatchyGround_4585_BaseColor.jpg" id="4_4arys"]
+[ext_resource type="Texture2D" uid="uid://dmpvw45qfkosl" path="res://Textures/Grass/Poliigon_GrassPatchyGround_4585_Normal.png" id="5_6iypd"]
+[ext_resource type="Script" uid="uid://oic7xd2wnti0" path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" id="6_tereu"]
+
+[sub_resource type="Resource" id="Resource_cdqbm"]
+script = ExtResource("3_jsk3o")
+mode = 0
+textures = [[ExtResource("4_4arys")], [ExtResource("5_6iypd")]]
+
+[node name="Node3D" type="Node3D" unique_id=526436316]
+
+[node name="HTerrain" type="Node3D" parent="." unique_id=1477586227]
+script = ExtResource("1_i5arm")
+_terrain_data = ExtResource("2_wc5p8")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_cdqbm")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = null
+shader_params/u_tile_reduction = null
+metadata/_custom_type_script = "uid://crir5mtnq8o1g"
+
+[node name="HTerrainDetailLayer" type="Node3D" parent="." unique_id=450495536]
+script = ExtResource("6_tereu")
+shader_params/u_globalmap_tint_bottom = null
+shader_params/u_globalmap_tint_top = null
+shader_params/u_bottom_ao = null
+shader_params/u_instance_scale = null
+shader_params/u_roughness = null
+metadata/_custom_type_script = "uid://oic7xd2wnti0"
